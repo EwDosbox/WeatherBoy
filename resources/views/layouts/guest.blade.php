@@ -19,7 +19,10 @@
 
 <body class="font-sans text-gray-900 antialiased bg-gradient-to-br from-sky-100 via-blue-200 to-indigo-200">
     <div class="min-h-screen flex flex-col items-center justify-center px-6 py-12">
-        {{ $slot }}
+
+        <div class="bg-white/70 backdrop-blur-md p-8 rounded-2xl shadow-xl text-center max-w-md w-full">
+            {{ $slot }}
+        </div>
     </div>
     @stack('scripts')
 </body>
