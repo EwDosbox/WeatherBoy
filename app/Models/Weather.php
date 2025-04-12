@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Weather extends Model
 {
     protected $fillable = [
+        'user_id',
         'temperature',
         'is_day',
         'wind_speed',
         'wind_direction',
         'weather_time',
     ];
+
     protected $casts = [
         'temperature' => 'float',
         'is_day' => 'boolean',

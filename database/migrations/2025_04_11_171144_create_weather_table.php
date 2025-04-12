@@ -19,6 +19,7 @@ return new class extends Migration
             $table->float('wind_speed')->nullable();
             $table->float('wind_direction')->nullable();
             $table->timestamp('weather_time');
+            $table->timestamps();
         });
     }
 
