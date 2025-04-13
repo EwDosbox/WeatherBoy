@@ -57,4 +57,21 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+    /**
+     * Update the user's location.
+     */
+    public function updateLocation(Request $request)
+    {
+        $request->validate([
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+        ]);
+
+        $request->user()->update([
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+        ]);
+
+        return back()->with('status', 'location-updated');
+    }
 }

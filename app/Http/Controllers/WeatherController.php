@@ -6,6 +6,8 @@ use App\Models\Weather;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Carbon\Carbon;
+
 
 
 class WeatherController extends Controller
@@ -18,7 +20,7 @@ class WeatherController extends Controller
         $this->store();
 
         $all = Weather::all()->where('user_id', Auth::id());
-        $last = Weather::latest()->where('user_id', Auth::id())->first();
+        $last = Weather::where('user_id', Auth::id())->orderByDesc('weather_time')->first();
 
         return view('dashboard', ['all' => $all, 'last' => $last]);
     }
@@ -45,7 +47,6 @@ class WeatherController extends Controller
                     return redirect()->back()->with('message', 'Weather data already exists for this time.');
                 }
             }
-
 
             Weather::create([
                 'user_id' => Auth::id(),

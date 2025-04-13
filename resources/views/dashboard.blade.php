@@ -21,7 +21,7 @@
             <p class="text-gray-600">Wind: <span class="font-medium">{{ $last['wind_speed'] ?? '-' }} km/h</span></p>
             <p class="text-gray-600">Direction: <span class="font-medium">{{ $last['wind_direction'] ?? '-' }}°</span></p>
             <p class="text-gray-600">Daytime: <span class="font-medium">{{ $last['is_day'] ? '☀️ Day' : '🌙 Night' }}</span></p>
-            <p class="text-gray-500 text-sm mt-2">As of {{ \Carbon\Carbon::parse($last['weather_time'])->format('H:i, M jS') }}</p>
+            <p class="text-gray-500 text-sm mt-2">As of {{ \Carbon\Carbon::parse($last['weather_time'])->format('H:i, M jS') }} GMT</p>
         </div>
     </div>
 
